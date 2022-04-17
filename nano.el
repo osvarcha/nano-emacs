@@ -19,7 +19,7 @@
 
 
 ;; Path to nano emacs modules (mandatory)
-(add-to-list 'load-path "/Users/rougier/Documents/GitHub/nano-emacs")
+;; (add-to-list 'load-path "/Users/rougier/Documents/GitHub/nano-emacs")
 (add-to-list 'load-path ".")
 
 ;; Default layout (optional)
@@ -37,7 +37,8 @@
 (cond
  ((member "-default" command-line-args) t)
  ((member "-dark" command-line-args) (require 'nano-theme-dark))
- (t (require 'nano-theme-light)))
+ ((member "-light" command-line-args) (require 'nano-theme-light))
+ (t (require 'nano-theme-dark)))
 
 ;; Customize support for 'emacs -q' (Optional)
 ;; You can enable customizations by creating the nano-custom.el file
@@ -60,7 +61,7 @@
 (nano-theme)
 
 ;; Nano default settings (optional)
-(require 'nano-defaults)
+;; (require 'nano-defaults)
 
 ;; Nano session saving (optional)
 (require 'nano-session)

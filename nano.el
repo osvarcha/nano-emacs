@@ -72,6 +72,12 @@
 ;; Nano key bindings modification (optional)
 (require 'nano-bindings)
 
+;; Nano Mini-buffer (optional)
+(require 'nano-minibuffer)
+
+;; Nano Command (optional)
+(require 'nano-command)
+
 ;; Compact layout (need to be loaded after nano-modeline)
 (when (member "-compact" command-line-args)
   (require 'nano-compact))
@@ -82,7 +88,8 @@
 
 ;; Welcome message (optional)
 (let ((inhibit-message t))
-  (message "Welcome to GNU Emacs / N Λ N O edition")
+  (message "Welcome to GNU Emacs / N Λ N O edition /
+                    By Osvarcha")
   (message (format "Initialization time: %s" (emacs-init-time))))
 
 ;; Splash (optional)

@@ -46,7 +46,7 @@
 (put 'ivy-history                'history-length 25)
 (put 'counsel-M-x-history        'history-length 25)
 (put 'counsel-minibuffer-history 'history-length 25)
-(setq savehist-file "~/.nano-savehist")
+(setq savehist-file (expand-file-name ".savehist" user-emacs-directory))
 (savehist-mode 1)
 
 ;; Remove text properties for kill ring entries
@@ -57,15 +57,17 @@
 
 ;; Recentf files 
 (setq recentf-max-menu-items 25)
-(setq recentf-save-file     "~/.nano-recentf")
+(setq recentf-save-file (expand-file-name ".recentf" user-emacs-directory))
 (recentf-mode 1)
 
 ;; Bookmarks
-(setq bookmark-default-file "~/.nano-bookmark")
+(setq 
+ bookmar-save-flag		t
+ bookmark-default-file 		(concat (expand-file-name ".bookmarks" user-emacs-directory)))
 
 
 ;; Backup
-(setq backup-directory-alist '(("." . "~/.backups"))
+(setq backup-directory-alist '(("." . (expand-file-name ".backup" user-emacs-directory)))
       make-backup-files t     ; backup of a file the first time it is saved.
       backup-by-copying t     ; don't clobber symlinks
       version-control t       ; version numbers for backup files
